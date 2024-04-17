@@ -1,14 +1,14 @@
 {
   "name": "@apitraffic/javascript-helpers",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Javascript helper library for ApiTraffic.",
   "main": "dist/apitraffic-javascript-helpers.bundle.js",
   "scripts": {
     "build": "webpack --mode production",
     "test": "NODE_ENV=test jest",
-    "pub-patch": "npm version patch --force && git push origin master &&  npm publish",
-    "pub-minor": "npm version minor --force && git push origin master &&  npm publish",
-    "pub-major": "npm version major --force && git push origin master &&  npm publish"
+    "pub-patch": "npm run build && npm version patch --force && git push origin master &&  npm publish",
+    "pub-minor": "npm run build && npm version minor --force && git push origin master &&  npm publish",
+    "pub-major": "npm run build && npm version major --force && git push origin master &&  npm publish"
   },
   "repository": {
     "type": "git",
