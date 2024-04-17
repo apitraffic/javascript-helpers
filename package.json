@@ -1,19 +1,21 @@
 {
   "name": "@apitraffic/javascript-helpers",
-  "version": "1.0.0",
-  "description": "",
-  
+  "version": "0.0.2",
+  "description": "Javascript helper library for ApiTraffic.",
   "main": "dist/apitraffic-javascript-helpers.bundle.js",
   "scripts": {
     "build": "webpack --mode production",
-    "test": "NODE_ENV=test jest"
+    "test": "NODE_ENV=test jest",
+    "pub-patch": "npm version patch --force && git push origin master &&  npm publish",
+    "pub-minor": "npm version minor --force && git push origin master &&  npm publish",
+    "pub-major": "npm version major --force && git push origin master &&  npm publish"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/apitraffic/javascript-helpers.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/apitraffic/javascript-helpers/issues"
   },
