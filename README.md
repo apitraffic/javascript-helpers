@@ -1,1 +1,3 @@
-# node-helpers
+# @apitraffic/javascript-helpers
+
+

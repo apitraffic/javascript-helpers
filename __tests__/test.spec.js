@@ -9,9 +9,25 @@ beforeEach(() => {
 
 describe("Url Helper Functions", () => {
 
-    describe.skip("while creating the proxy url", () => {
+    describe("while creating the proxy url", () => {
+
+        test("should successfully create url using http.", async () => {
+
+            const options = {
+                target: "https://www.boredapi.com/api/activity/",
+                bucketSid: "123456abc"
+            };
+
+            const result = lib.constructProxyUrl(options);
+            
+            expect(result.urlAsString).toEqual("https://www-boredapi-com-123456abc.apitraffic.io/api/activity/");
+
+
+        });
 
         describe("when only modifying without a path", () => {
+
+
 
             test("should successfully create url using http.", async () => {
 
@@ -22,7 +38,7 @@ describe("Url Helper Functions", () => {
 
                 const result = lib.constructProxyUrl(options);
                 
-                expect(result.url).toEqual("http://api-testdomain-com-123456abc.apitraffic.io");
+                expect(result.urlAsString).toEqual("http://api-testdomain-com-123456abc.apitraffic.io");
 
 
             });
@@ -36,7 +52,7 @@ describe("Url Helper Functions", () => {
 
                 const result = lib.constructProxyUrl(options);
                 
-                expect(result.url).toEqual("https://api-testdomain-com-123456abc.apitraffic.io");
+                expect(result.urlAsString).toEqual("https://api-testdomain-com-123456abc.apitraffic.io");
 
 
             });
@@ -50,7 +66,7 @@ describe("Url Helper Functions", () => {
 
                 const result = lib.constructProxyUrl(options);
                 
-                expect(result.url).toEqual("https://api--testing-testdomain-com-123456abc.apitraffic.io");
+                expect(result.urlAsString).toEqual("https://api--testing-testdomain-com-123456abc.apitraffic.io");
 
             });
 
@@ -63,7 +79,7 @@ describe("Url Helper Functions", () => {
 
                 const result = lib.constructProxyUrl(options);
                 
-                expect(result.url).toEqual("https://api-testdomain-com-123456abc.apitraffic.io/");
+                expect(result.urlAsString).toEqual("https://api-testdomain-com-123456abc.apitraffic.io/");
 
             });
 
@@ -76,7 +92,7 @@ describe("Url Helper Functions", () => {
 
                 const result = lib.constructProxyUrl(options);
                 
-                expect(result.url).toEqual("https://api-testdomain-com-123456abc.apitraffic.io:8000");
+                expect(result.urlAsString).toEqual("https://api-testdomain-com-123456abc.apitraffic.io:8000");
 
             });
 
@@ -95,7 +111,7 @@ describe("Url Helper Functions", () => {
 
                 const result = lib.constructProxyUrl(options);
                 
-                expect(result.url).toEqual("http://api-testdomain-com-123456abc.apitraffic.io/v1");
+                expect(result.urlAsString).toEqual("http://api-testdomain-com-123456abc.apitraffic.io/v1");
 
 
             });
@@ -109,12 +125,24 @@ describe("Url Helper Functions", () => {
 
                 const result = lib.constructProxyUrl(options);
                 
-                expect(result.url).toEqual("http://api-testdomain-com-123456abc.apitraffic.io/v1/test");
+                expect(result.urlAsString).toEqual("http://api-testdomain-com-123456abc.apitraffic.io/v1/test");
 
 
             });
 
+            test("should successfully create url that uses basic auth.", async () => {
 
+                const options = {
+                    target: "https://jason:test@www.boredapi.com:8100/api/activity/?testing=1",
+                    bucketSid: "123456abc"
+                };
+
+                const result = lib.constructProxyUrl(options);
+                
+                expect(result.urlAsString).toEqual("https://jason:test@www-boredapi-com-123456abc.apitraffic.io:8100/api/activity/?testing=1");
+
+
+            });
 
 
         });

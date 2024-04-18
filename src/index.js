@@ -32,11 +32,12 @@ module.exports = {
         // just replace the host name now...
         url.hostname = hostname;
 
-        result.url = url.toString();
+        result.url = url;
+        result.urlAsString = url.toString();
 
         // check to see if a trailing slash was passed in originally...
-        if(target.charAt(target.length - 1) !== "/" && result.url.charAt(result.url.length - 1) === "/"){
-            result.url = result.url.slice(0, -1);
+        if(target.charAt(target.length - 1) !== "/" && result.urlAsString.charAt(result.urlAsString.length - 1) === "/"){
+            result.urlAsString = result.urlAsString.slice(0, -1);
         }
 
         result.steps = conversionSteps;
