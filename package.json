@@ -1,6 +1,6 @@
 {
   "name": "@apitraffic/javascript-helpers",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Javascript helper library for ApiTraffic.",
   "main": "dist/apitraffic-javascript-helpers.bundle.js",
   "scripts": {
