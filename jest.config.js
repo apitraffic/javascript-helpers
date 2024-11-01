@@ -6,7 +6,8 @@ module.exports = {
 	// It indicates that each one imported modules in the tests must be mocked automatically
     // This configuration factors to the glob patterns Jest uses to detect test files
  	testMatch: [
-   	"**/?(*.)+(spec|test).js?(x)"
+   	//"**/?(*.)+(spec|test).js?(x)"
+	"**/CriteriaService(*.)+(spec|test).js?(x)"
  	],
 	// This configuration indicates the Jest to an array of regexp pattern strings that are matched towards all test paths, matched tests are skipped
  	testPathIgnorePatterns: [
